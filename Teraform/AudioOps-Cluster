@@ -1,0 +1,84 @@
+########################################
+# Provider AWS : définit la région cible
+########################################
+provider "aws" {
+  region = "us-east-1"   # Ici on choisit la région US Est (N. Virginia)
+}
+
+########################################
+# VPC fictif : réseau isolé pour le cluster
+########################################
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "5.0.0"
+
+  name = "devops-audio-vpc"   # Nom du VPC
+  cidr = "10.0.0.0/16"        # Plage d’adresses IP
+
+  # Zones de disponibilité utilisées
+  azs             = ["us-east-1a", "us-east-1b"]
+
+  # Sous-réseaux privés et publics
+  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
+
+  # NAT Gateway pour permettre aux instances privées d’accéder à Internet
+  enable_nat_gateway = true
+  single_nat_gateway = true
+}
+
+########################################
+# Cluster EKS fictif : Kubernetes managé
+########################################
+module "eks" {
+  source          = "terraform-aws-modules/eks/aws"
+  cluster_name    = "devops-audio-cluster"   # Nom du cluster
+  cluster_version = "1.29"                   # Version Kubernetes
+  subnets         = module.vpc.private_subnets
+  vpc_id          = module.vpc.vpc_id
+
+  # Groupe de nœuds (EC2) pour exécuter les workloads audio
+  node_groups = {
+    audio_nodes = {
+      desired_capacity = 2   # Nombre de nœuds souhaités
+      max_capacity     = 4   # Nombre maximum de nœuds
+      min_capacity     = 1   # Nombre minimum de nœuds
+
+      instance_types = ["t3.medium"]   # Type d’instance EC2
+      capacity_type  = "ON_DEMAND"     # Mode de facturation
+    }
+  }
+}
+
+########################################
+# Grafana via Helm : monitoring en temps réel
+########################################
+resource "helm_release" "grafana" {
+  name       = "grafana"   # Nom du déploiement Helm
+  repository = "https://grafana.github.io/helm-charts"
+  chart      = "grafana"
+  namespace  = "monitoring"
+
+  # Mot de passe admin
+  set {
+    name  = "adminPassword"
+    value = "SuperSecurePass123"
+  }
+
+  # Type de service : LoadBalancer pour exposer Grafana
+  set {
+    name  = "service.type"
+    value = "LoadBalancer"
+  }
+}
+
+########################################
+# Outputs : informations utiles après déploiement
+########################################
+output "cluster_name" {
+  value = module.eks.cluster_name   # Affiche le nom du cluster
+}
+
+output "grafana_url" {
+  value = helm_release.grafana.status   # Affiche l’état/URL de Grafana
+}
