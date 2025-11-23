@@ -1,0 +1,52 @@
+########################################
+# Deployment : déploie ton microservice AI Mastering
+########################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-mastering-deployment   # Nom du déploiement
+  labels:
+    app: ai-mastering             # Label pour identifier l'application
+spec:
+  replicas: 2                     # Nombre de Pods (scalabilité horizontale)
+  selector:
+    matchLabels:
+      app: ai-mastering           # Sélecteur pour associer les Pods
+  template:
+    metadata:
+      labels:
+        app: ai-mastering         # Label appliqué aux Pods créés
+    spec:
+      containers:
+      - name: ai-mastering        # Nom du conteneur
+        image: abdou/audio-mastering:1.0   # Image Docker fictive (à construire)
+        ports:
+        - containerPort: 5000     # Port exposé par l’application (Flask par ex.)
+        resources:                # Gestion des ressources
+          requests:
+            cpu: "500m"           # CPU minimum garanti
+            memory: "512Mi"       # Mémoire minimum garantie
+          limits:
+            cpu: "1"              # CPU maximum autorisé
+            memory: "1Gi"         # Mémoire maximum autorisée
+        env:                      # Variables d'environnement
+        - name: MONITORING_ENABLED
+          value: "true"           # Active le monitoring temps réel
+        - name: REGION
+          value: "us-east-1"      # Région fictive pour simuler multi-régions
+---
+########################################
+# Service : expose le microservice AI Mastering
+########################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-mastering-service       # Nom du service
+spec:
+  type: LoadBalancer               # Type de service (accessible depuis l’extérieur)
+  selector:
+    app: ai-mastering              # Associe le service aux Pods du déploiement
+  ports:
+  - protocol: TCP
+    port: 80                       # Port exposé au client
+    targetPort: 5000               # Port interne du conteneur
