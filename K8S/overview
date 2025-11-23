@@ -8,3 +8,14 @@ Resources : définissent les limites CPU/Mémoire pour éviter qu’un Pod conso
 Environment variables : permettent de configurer ton app (monitoring activé, région simulée).
 
 Service : expose ton microservice via un LoadBalancer, ce qui le rend accessible depuis l’extérieur (par ex. pour un studio audio).
+
+
+Dashboard : nommé AudioOps-Mastering Dashboard, il centralise les métriques clés.
+
+Panel 1 – Latence : mesure le temps de traitement audio en secondes.
+
+Panel 2 – Qualité audio : affiche un score IA (0–100%) pour évaluer la qualité du mastering.
+
+Panel 3 – Erreurs : compte le nombre d’erreurs rencontrées lors du traitement.
+
+Prometheus : les métriques (audio_mastering_latency_seconds, etc.) sont fictives mais représentatives de ce que tu pourrais exporter depuis ton microservice.
