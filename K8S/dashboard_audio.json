@@ -1,0 +1,52 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "🎧 AudioOps-Mastering Dashboard",   // Nom du dashboard
+    "tags": ["audio", "devops", "monitoring"],   // Mots-clés
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Latence du traitement audio",   // Graphique de latence
+        "targets": [
+          {
+            "expr": "audio_mastering_latency_seconds", // Métrique Prometheus fictive
+            "legendFormat": "Latence (s)"
+          }
+        ],
+        "yaxes": [
+          { "format": "s", "label": "Secondes" },
+          { "format": "short" }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Qualité audio (score IA)",      // Graphique qualité
+        "targets": [
+          {
+            "expr": "audio_mastering_quality_score", // Score IA fictif
+            "legendFormat": "Score qualité"
+          }
+        ],
+        "yaxes": [
+          { "format": "percent", "label": "Qualité (%)" },
+          { "format": "short" }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Erreurs de mastering",          // Graphique erreurs
+        "targets": [
+          {
+            "expr": "audio_mastering_errors_total", // Nombre d'erreurs
+            "legendFormat": "Erreurs"
+          }
+        ],
+        "yaxes": [
+          { "format": "short", "label": "Nombre" },
+          { "format": "short" }
+        ]
+      }
+    ]
+  }
+}
