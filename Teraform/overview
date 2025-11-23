@@ -1,0 +1,10 @@
+🔎 Explication
+VPC fictif : réseau isolé pour simuler ton pipeline audio.
+
+Cluster EKS : héberge les microservices IA (analyse, beat selection, mastering).
+
+Node group : 2 nœuds EC2 t3.medium pour simuler la charge.
+
+Grafana via Helm : déployé dans le namespace monitoring avec un LoadBalancer pour exposer les dashboards en temps réel.
+
+Outputs : affichent le nom du cluster et l’URL de Grafana.
