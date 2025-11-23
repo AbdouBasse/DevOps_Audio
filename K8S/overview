@@ -1,0 +1,10 @@
+🔎 Explication pédagogique
+Deployment : gère la création et la mise à jour des Pods. Ici, on déploie 2 réplicas pour assurer la disponibilité.
+
+Container : ton microservice AI Mastering est packagé dans une image Docker (abdou/audio-mastering:1.0).
+
+Resources : définissent les limites CPU/Mémoire pour éviter qu’un Pod consomme trop.
+
+Environment variables : permettent de configurer ton app (monitoring activé, région simulée).
+
+Service : expose ton microservice via un LoadBalancer, ce qui le rend accessible depuis l’extérieur (par ex. pour un studio audio).
