@@ -1,0 +1,10 @@
+🔎 Explication pédagogique
+Stage Terraform : initialise et valide l’infrastructure (terraform/).
+
+Stage Build AI Module : installe Python, lance une simulation IA, puis construit et pousse l’image Docker (kubernetes/).
+
+Stage Déploiement Kubernetes : applique les manifests Kubernetes sur le cluster EKS (deployment-mastering.yml).
+
+Stage Monitoring Grafana : archive les captures Grafana et les samples audio (studio-demo/).
+
+Post-actions : messages clairs en cas de succès ou d’échec.
