@@ -1,0 +1,17 @@
+DevOps_Audio_Demo/
+│
+├── samples/                 # Fichiers audio avant/après
+│   ├── raw_sample.wav
+│   └── mastered_sample.wav
+│
+├── demo/                    # Scripts et assets pour démo
+│   ├── demo_pipeline.md     # Narration du parcours audio
+│   ├── demo_video.mp4       # Capture d’écran pipeline
+│   └── demo_slides.pdf      # Slides pédagogiques
+│
+├── docs/                    # Documentation narrative
+│   ├── carrousel_linkedin.md
+│   └── pitch_deck.md
+│
+├── README.md                # Documentation principale
+└── LICENSE                  # Licence open-source (MIT par défaut)
