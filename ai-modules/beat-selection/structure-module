@@ -1,0 +1,26 @@
+DevOps_Audio_BeatSelection/
+│
+├── src/                     # Code source principal
+│   ├── main.py              # API FastAPI (endpoints /analyze, /recommend)
+│   ├── model.py             # Définition et entraînement du modèle IA
+│   ├── features.py          # Extraction des features audio (Librosa)
+│   └── utils.py             # Fonctions utilitaires (préprocessing, logs)
+│
+├── tests/                   # Tests unitaires
+│   ├── test_features.py
+│   ├── test_model.py
+│   └── test_api.py
+│
+├── data/                    # Dataset audio (samples annotés)
+│   └── README.md            # Instructions pour ajouter des datasets
+│
+├── docker/                  # Configurations Docker
+│   └── Dockerfile
+│
+├── .github/                 # CI/CD workflows
+│   └── workflows/
+│       └── ci-cd.yml        # GitHub Actions (tests + build Docker)
+│
+├── requirements.txt         # Dépendances Python
+├── README.md                # Documentation principale
+└── LICENSE                  # Licence open-source (MIT par défaut)
