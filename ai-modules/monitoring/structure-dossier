@@ -1,0 +1,26 @@
+DevOps_Audio_Monitoring/
+│
+├── src/                     # Code source API instrumentée
+│   ├── main.py              # API FastAPI avec endpoint /metrics
+│   └── monitoring.py        # Collecte et exposition des métriques
+│
+├── grafana/                 # Configurations Grafana
+│   ├── dashboards/          # JSON des dashboards audio
+│   └── grafana.ini
+│
+├── prometheus/              # Configurations Prometheus
+│   └── prometheus.yml
+│
+├── docker/                  # Docker Compose pour orchestrer API + Prometheus + Grafana
+│   └── docker-compose.yml
+│
+├── tests/                   # Tests de performance et monitoring
+│   └── test_metrics.py
+│
+├── .github/                 # CI/CD workflows
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── requirements.txt         # Dépendances Python
+├── README.md                # Documentation principale
+└── LICENSE                  # Licence open-source (MIT par défaut)
