@@ -1,0 +1,28 @@
+DevOps_Audio_Distribution/
+│
+├── src/                     # Code source API globale
+│   ├── main.py              # FastAPI avec endpoints publics
+│   └── routers/             # Routes pour beat, mastering, monitoring
+│
+├── infra/                   # Infrastructure as Code
+│   ├── terraform/           # Déploiement multi-régions AWS
+│   └── ansible/             # Playbooks pour configuration
+│
+├── docker/                  # Docker/Kubernetes configs
+│   ├── Dockerfile
+│   └── k8s-deployment.yml
+│
+├── docs/                    # Documentation API
+│   ├── openapi.yaml         # Spécification OpenAPI
+│   └── guide.md             # Guide narratif pour studios
+│
+├── .github/                 # CI/CD workflows
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── tests/                   # Tests API et infra
+│   └── test_api.py
+│
+├── requirements.txt         # Dépendances Python
+├── README.md                # Documentation principale
+└── LICENSE                  # Licence open-source (MIT par défaut)
