@@ -1,6 +1,4 @@
 🎧 DevOps Audio – Beat Selection (MVP)
-
-
 🚀 Objectif
 Ce module est le premier jalon du projet Audio DevOps SaaS. Il illustre comment appliquer les principes DevOps à un cas créatif : la sélection automatique de beats.
 
@@ -24,42 +22,33 @@ AWS Lightsail/EC2 : cible de déploiement futur, permettant de rendre l’API ac
 💡 Cette stack illustre un workflow DevOps complet : développement → tests → containerisation → CI/CD → déploiement cloud.
 
 📂 Structure du projet
-src/ : contient le code source principal
-
-main.py : API FastAPI avec endpoints /analyze et /recommend
-
-model.py : définition et entraînement du modèle IA (classification des beats)
-
-features.py : extraction des features audio (tempo, spectrogrammes, MFCCs)
-
-utils.py : fonctions utilitaires (préprocessing, logs, gestion des erreurs)
-
-tests/ : tests unitaires pour garantir la fiabilité du code
-
-test_features.py : vérifie l’extraction correcte des features audio
-
-test_model.py : valide les prédictions du modèle IA
-
-test_api.py : teste les endpoints de l’API
-
-data/ : datasets audio annotés (samples de beats et fichiers bruts)
-
-README.md : guide pour ajouter de nouveaux datasets
-
-docker/ : configuration Docker
-
-Dockerfile : instructions pour construire l’image du projet
-
-.github/workflows/ : pipeline CI/CD
-
-ci-cd.yml : exécution des tests, build Docker, push vers DockerHub
-
-requirements.txt : dépendances Python (Librosa, FastAPI, PyTorch/TensorFlow, etc.)
-
-README.md : documentation principale (ce fichier)
-
-LICENSE : licence open-source MIT
-
+Code
+DevOps_Audio_BeatSelection/
+│
+├── src/                     # Code source principal
+│   ├── main.py              # API FastAPI (endpoints /analyze, /recommend)
+│   ├── model.py             # Définition et entraînement du modèle IA
+│   ├── features.py          # Extraction des features audio (Librosa)
+│   └── utils.py             # Fonctions utilitaires (préprocessing, logs)
+│
+├── tests/                   # Tests unitaires
+│   ├── test_features.py
+│   ├── test_model.py
+│   └── test_api.py
+│
+├── data/                    # Dataset audio (samples annotés)
+│   └── README.md            # Instructions pour ajouter des datasets
+│
+├── docker/                  # Configurations Docker
+│   └── Dockerfile
+│
+├── .github/                 # CI/CD workflows
+│   └── workflows/
+│       └── ci-cd.yml        # GitHub Actions (tests + build Docker)
+│
+├── requirements.txt         # Dépendances Python
+├── README.md                # Documentation principale
+└── LICENSE                  # Licence open-source (MIT par défaut)
 ▶️ Exemple d’utilisation
 1. Installation
 bash
@@ -87,3 +76,19 @@ Build Docker : image construite et poussée vers DockerHub.
 Déploiement futur : pipeline prêt à être étendu vers AWS Lightsail/EC2.
 
 👉 Ce module est un exemple concret de CI/CD appliqué à l’audio, montrant comment automatiser un projet IA créatif.
+
+📚 Dimension pédagogique
+Ce repo est conçu pour être :
+
+Un exemple narratif de pipeline DevOps appliqué à l’audio.
+
+Un support pédagogique pour carrousels LinkedIn et ateliers.
+
+Une base évolutive vers mastering/mixage automatisés.
+
+💡 Chaque étape est documentée pour servir de ressource éducative aux étudiants, développeurs et créateurs audio.
+
+📜 Licence
+Projet open-source sous licence MIT. Libre d’utilisation, modification et distribution, tant que la licence est respectée.
+
+✨ Résultat : Tu obtiens un README narratif et technique, qui fait à la fois office de documentation, de vitrine professionnelle et de support pédagogique.
