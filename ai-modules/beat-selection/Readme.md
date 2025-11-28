@@ -1,34 +1,66 @@
-# 🎧 DevOps Audio – Beat Selection (MVP)
+🎧 DevOps Audio – Beat Selection (MVP)
+🚀 Objectif
+Ce module est le premier jalon du projet Audio DevOps SaaS. Il illustre comment appliquer les principes DevOps à un cas créatif : la sélection automatique de beats.
 
-## 🚀 Objectif
-Ce module est le **premier jalon** du projet Audio DevOps SaaS.  
-Il permet de :
-- Analyser un fichier audio brut
-- Extraire ses caractéristiques (tempo, énergie, tonalité…)
-- Recommander automatiquement un **beat adapté** via IA
+Analyser un fichier audio brut : détection du tempo, de la tonalité, de l’énergie et des patterns rythmiques.
 
----
+Extraire ses caractéristiques : utilisation de la librairie Librosa pour transformer le signal audio en features exploitables par un modèle IA.
 
-## 🛠️ Stack technique
-- **Python** (Librosa, FastAPI, PyTorch/TensorFlow)
-- **Docker** pour containerisation
-- **GitHub Actions** pour CI/CD
-- **AWS Lightsail/EC2** pour déploiement futur
+Recommander automatiquement un beat adapté : un modèle IA (PyTorch/TensorFlow) compare les caractéristiques extraites avec une base de beats pré-entraînés et propose la meilleure correspondance.
 
----
+👉 Ce module montre comment l’IA et le DevOps se rencontrent pour créer une API scalable et automatisée, prête à évoluer vers mastering et mixage.
 
-## 📂 Structure du projet
-- `src/` : code source (API, modèle IA, extraction features)
-- `tests/` : tests unitaires
-- `data/` : datasets audio
-- `docker/` : configuration Docker
-- `.github/workflows/` : pipeline CI/CD
+🛠️ Stack technique
+Python : cœur du projet, avec Librosa pour l’analyse audio, FastAPI pour exposer l’API, et PyTorch/TensorFlow pour l’IA.
 
----
+Docker : garantit la portabilité et la reproductibilité du projet. Chaque composant est containerisé pour simplifier le déploiement.
 
-## ▶️ Exemple d’utilisation
-### 1. Installation
-```bash
+GitHub Actions : pipeline CI/CD automatisé qui lance les tests unitaires, construit l’image Docker et la pousse vers DockerHub.
+
+AWS Lightsail/EC2 : cible de déploiement futur, permettant de rendre l’API accessible à grande échelle.
+
+💡 Cette stack illustre un workflow DevOps complet : développement → tests → containerisation → CI/CD → déploiement cloud.
+
+📂 Structure du projet
+src/ : contient le code source principal
+
+main.py : API FastAPI avec endpoints /analyze et /recommend
+
+model.py : définition et entraînement du modèle IA (classification des beats)
+
+features.py : extraction des features audio (tempo, spectrogrammes, MFCCs)
+
+utils.py : fonctions utilitaires (préprocessing, logs, gestion des erreurs)
+
+tests/ : tests unitaires pour garantir la fiabilité du code
+
+test_features.py : vérifie l’extraction correcte des features audio
+
+test_model.py : valide les prédictions du modèle IA
+
+test_api.py : teste les endpoints de l’API
+
+data/ : datasets audio annotés (samples de beats et fichiers bruts)
+
+README.md : guide pour ajouter de nouveaux datasets
+
+docker/ : configuration Docker
+
+Dockerfile : instructions pour construire l’image du projet
+
+.github/workflows/ : pipeline CI/CD
+
+ci-cd.yml : exécution des tests, build Docker, push vers DockerHub
+
+requirements.txt : dépendances Python (Librosa, FastAPI, PyTorch/TensorFlow, etc.)
+
+README.md : documentation principale (ce fichier)
+
+LICENSE : licence open-source MIT
+
+▶️ Exemple d’utilisation
+1. Installation
+bash
 git clone https://github.com/<username>/DevOps_Audio_BeatSelection.git
 cd DevOps_Audio_BeatSelection
 pip install -r requirements.txt
@@ -39,36 +71,17 @@ uvicorn src.main:app --reload
 bash
 curl -X POST "http://127.0.0.1:8000/recommend" \
      -F "file=@data/sample.wav"
-Réponse :
-
+Réponse attendue
 json
 {
   "recommended_beat": "Afro",
   "confidence": 0.87
 }
 📊 CI/CD
-Tests unitaires lancés automatiquement sur chaque commit
+Tests unitaires : exécutés automatiquement à chaque commit.
 
-Build Docker et push vers DockerHub
+Build Docker : image construite et poussée vers DockerHub.
 
-Déploiement futur sur AWS
+Déploiement futur : pipeline prêt à être étendu vers AWS Lightsail/EC2.
 
-📚 Dimension pédagogique
-Ce repo est conçu pour être :
-
-Un exemple narratif de pipeline DevOps appliqué à l’audio
-
-Un support pour carrousels LinkedIn et ateliers pédagogiques
-
-Une base pour évoluer vers mastering/mixage automatisés
-
-📜 Licence
-Projet open-source sous licence MIT.
-
-Code
-
----
-
-👉 Avec cette structure et ce README, tu as un **repo GitHub prêt à être publié** et à servir de vitrine pour ton indépendance.  
-
-Veux-tu que je t’aide à **rédiger directemen
+👉 Ce module est un exemple concret de CI/CD appliqué à l’audio, montrant comment automatiser un projet IA créatif.
