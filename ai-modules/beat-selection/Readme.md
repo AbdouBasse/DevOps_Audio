@@ -20,3 +20,7 @@ Docker : containerisation et portabilité
 GitHub Actions : CI/CD automatisé (tests + build + push Docker)
 
 AWS Lightsail/EC2 : cible de déploiement futur
+
+docker build -t devops-audio-beatselection .
+docker run -p 8000:8000 devops-audio-beatselection
+
