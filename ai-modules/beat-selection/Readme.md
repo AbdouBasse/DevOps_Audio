@@ -1,4 +1,6 @@
 🎧 DevOps Audio – Beat Selection (MVP)
+
+
 🚀 Objectif
 Ce module est le premier jalon du projet Audio DevOps SaaS. Il illustre comment appliquer les principes DevOps à un cas créatif : la sélection automatique de beats.
 
