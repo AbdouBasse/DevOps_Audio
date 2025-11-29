@@ -84,3 +84,16 @@ pytest==7.4.0          # Framework de tests unitaires
 pandas==2.0.3          # Manipulation des annotations (CSV, datasets)
 python-dotenv==1.0.0   # Gestion des variables d’environnement
 
+
+✨ Explications
+FastAPI + Uvicorn : pour exposer ton API REST et la rendre accessible.
+
+Librosa + NumPy + SciPy : pour analyser les fichiers audio et extraire les caractéristiques (tempo, MFCCs, tonalité).
+
+PyTorch / TensorFlow / Scikit-learn : pour entraîner et tester ton modèle IA. Tu peux garder les deux frameworks pour comparer ou n’en utiliser qu’un.
+
+Pytest : pour exécuter automatiquement les tests unitaires.
+
+Pandas : pour gérer les annotations des datasets (CSV).
+
+Dotenv : pour stocker les secrets (ex. credentials DockerHub, AWS) dans un fichier .env.
