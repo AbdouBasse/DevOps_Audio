@@ -62,30 +62,8 @@ Le projet suit un pipeline complet, inspiré des pratiques DevOps :
    - AWS EC2/Lightsail comme cible
    - Automatisation possible via Terraform ou Ansible
 
-         requirements.txt
-# Core Python libraries
-fastapi==0.95.2        # Framework web pour exposer l'API
-uvicorn==0.22.0        # Serveur ASGI pour lancer l'API FastAPI
-
-# Audio processing
-librosa==0.10.0        # Analyse et extraction de features audio
-numpy==1.24.3          # Calcul scientifique, manipulation de matrices
-scipy==1.11.1          # Fonctions mathématiques avancées (FFT, filtres)
-
-# Machine Learning / IA
-torch==2.0.1           # PyTorch pour définir et entraîner le modèle IA
-tensorflow==2.12.0     # Alternative TensorFlow pour expérimentation
-scikit-learn==1.3.0    # Outils ML classiques (préprocessing, métriques)
-
-# Tests
-pytest==7.4.0          # Framework de tests unitaires
-
-# Utils
-pandas==2.0.3          # Manipulation des annotations (CSV, datasets)
-python-dotenv==1.0.0   # Gestion des variables d’environnement
-
-
-✨ Explications
+         
+✨ Explications requirement
 FastAPI + Uvicorn : pour exposer ton API REST et la rendre accessible.
 
 Librosa + NumPy + SciPy : pour analyser les fichiers audio et extraire les caractéristiques (tempo, MFCCs, tonalité).
