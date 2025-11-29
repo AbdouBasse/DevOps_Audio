@@ -32,3 +32,14 @@ Il permet de :
 git clone https://github.com/<username>/DevOps_Audio_MasteringMixing.git
 cd DevOps_Audio_MasteringMixing
 pip install -r requirements.txt
+
+✨ Explications requierement
+FastAPI + Uvicorn : pour exposer ton API /master et /mix.
+
+Librosa + NumPy + SciPy + Soundfile : pour le traitement audio (EQ, compression, reverb, normalisation).
+
+PyTorch + Scikit-learn : pour entraîner ton IA à ajuster les paramètres selon le style musical.
+
+Pytest : pour exécuter automatiquement les tests unitaires.
+
+Pandas + Dotenv : pour gérer les annotations et les secrets (DockerHub, AWS).
