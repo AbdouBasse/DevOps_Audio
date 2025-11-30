@@ -1,0 +1,20 @@
+groups:
+  - name: audio_alerts
+    rules:
+      - alert: HighLatency
+        expr: latency_ms > 150
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Latence élevée détectée"
+          description: "La latence dépasse 150 ms depuis plus d'une minute."
+
+      - alert: HighErrorRate
+        expr: errors_total > 10
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Taux d'erreurs élevé"
+          description: "Plus de 10 erreurs cumulées détectées."
