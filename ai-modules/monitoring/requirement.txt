@@ -1,0 +1,20 @@
+
+---
+
+# 📦 requirements.txt – DevOps Audio Monitoring
+
+```txt
+# Core API
+fastapi==0.95.2        # Framework web pour exposer l'API
+uvicorn==0.22.0        # Serveur ASGI pour lancer l'API FastAPI
+
+# Monitoring
+prometheus-client==0.16.0   # Exporter des métriques pour Prometheus
+requests==2.31.0            # Requêtes HTTP (tests et intégrations)
+
+# Utils
+numpy==1.24.3          # Calcul scientifique (latence simulée, métriques)
+pandas==2.0.3          # Manipulation des métriques et logs
+
+# Tests
+pytest==7.4.0          # Framework de tests unitaires
