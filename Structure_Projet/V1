@@ -1,0 +1,13 @@
+DevOps_Audio/
+├── data/
+│   ├── raw_audio/
+│   ├── beats/
+│   └── output/
+│
+├── pipeline/
+│   ├── audio_analysis.py
+│   ├── beat_selection.py
+│   └── main.py
+│
+├── requirements.txt
+└── README.md
